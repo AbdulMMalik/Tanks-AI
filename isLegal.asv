@@ -1,0 +1,28 @@
+function movement = isLegal(globalBoard, move, turn)
+    
+    movement = 'wrongMove';
+    [ x, y ] = find(globalBoard == turn);
+   
+    if ((x <= 15 && x >= 1) && y <= 15 && y >= 1)
+        % up movement
+        if move == 1 && globalBoard( x, y ) ~= -2
+            movement = 'up';
+        end
+        % down movement
+        if move == 2 && globalBoard( x, y ) ~= -2
+            movement = 'down'; 
+        end
+         
+         % right movement
+         if move == 3 && globalBoard( x, y ) ~= -2
+            movement = 'right'; 
+         end
+         
+         % left movement
+         if move == 4 && globalBoard( x, y ) ~= -2
+            movement = 'left'; 
+         end
+    else
+        return;
+    end
+end
